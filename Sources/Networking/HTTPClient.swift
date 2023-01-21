@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol HTTPClient {
+public protocol HTTPClient {
     func sendRequest<T: Decodable>(
         session: URLSession,
         endpoint: Endpoint,
         responseModel: T.Type) async -> Result<T, HTTPRequestError>
 }
 
-extension HTTPClient {
+public extension HTTPClient {
     
     func sendRequest<T: Decodable>(session: URLSession = .shared,
                                    endpoint: Endpoint,
